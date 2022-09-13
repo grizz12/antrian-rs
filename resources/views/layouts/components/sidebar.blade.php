@@ -46,9 +46,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/input_data" class="nav-link active">
+              <a href="/tiket" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Input Data Pasien</p>
+                <p>Input Tiket Pasien</p>
               </a>
             </li>
           </ul>

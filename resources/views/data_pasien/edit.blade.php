@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Alamat Orang Tua</label>
-                                        <textarea type="text"name="alamat_orang_tua"  value="{{ $data_pasien->alamat_orang_tua }}" class="form-control @error('alamat_orang_tua') is-invalid @enderror"></textarea>
+                                        <textarea type="text" name="alamat_orang_tua"  value="{{ $data_pasien->alamat_orang_tua }}" class="form-control @error('alamat_orang_tua') is-invalid @enderror"></textarea>
                                         @error('alamat_orang_tua')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

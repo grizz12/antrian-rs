@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\InputPasienController;
+use App\Http\Controllers\TiketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,12 @@ Route::get('/', function () {
 Route::resource('/data_pasien',DataPasienController::class);
 
 Route::resource('/input_data',InputPasienController::class);
+
+Route::resource('/tiket',TiketController::class);
+
+Route::get('/home', function () {
+    return view('home');
+});
 
 // login
 // Route::get('login',Login::class);

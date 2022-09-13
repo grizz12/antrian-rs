@@ -181,8 +181,7 @@
                                     
                                     <div class="mb-3">
                                         <div class="d-grid gap-2 d-md-block">
-                                            <button class="btn btn-primary" type="submit">Save</button>
-                                            <a href="{{ route('data_pasien.index') }}" class="btn btn-primary" type="submit">Kembali</a>
+                                            <button class="btn btn-primary" href="{{ route('tiket.create') }}" type="submit">Save</button>
                                         </div>
                                     </div>
                                 </div>

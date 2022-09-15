@@ -38,7 +38,7 @@
                                             <td>{{ $data->pinjaman }}</td>
                                             <td>{{ $data->poli }}</td>
                                             <td>{{ $data->tgl_kunjungan }}</td>
-                                            <td>{{ $data->data_pasien->no_rekam }}</td>
+                                            <td>{{ $data->no_rekam }}</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                 <form action="{{ route('tiket.destroy', $data->id) }}" method="post">

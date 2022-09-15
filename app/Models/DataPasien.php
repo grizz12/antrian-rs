@@ -10,7 +10,7 @@ class DataPasien extends Model
     use HasFactory;
     protected $table = 'data_pasiens';
     
-    public $fillable = [
+    protected $fillable = [
         'no_rekam','nama','tgl_lahir','umur','no_tlp','alamat','kec','kota','nama_orang_tua',
         'alamat_orang_tua','pekerjaan','agama','status','jenis_kelamin'];
     public $timestamps = true;

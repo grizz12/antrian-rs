@@ -45,7 +45,7 @@
                                 <input type="date" class="form-control  @error('tgl_kunjungan') is-invalid @enderror"
                                     name="tgl_kunjungan" value="{{ $tiket->tgl_kunjungan }}">
                                 @error('tgl_kunjungan')
-                                    <span class="invalid-feedback" role="alert">
+                                      <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror

@@ -15,12 +15,12 @@ class CreateInputDataTable extends Migration
     {
         Schema::create('input_data', function (Blueprint $table) {
             $table->id();
-            $table->date('tgl_berobat');
-            $table->string('klinik');
-            $table->string('pembayaran');
-            $table->string('pasien_datang');
-            $table->string('nama_dokter');
-            $table->string('diagnosa');
+            $table->date('tgl_berobat')->nullable();
+            $table->string('klinik')->nullable();
+            $table->string('pembayaran')->nullable();
+            $table->string('pasien_datang')->nullable();
+            $table->string('nama_dokter')->nullable();
+            $table->string('diagnosa')->nullable();
             $table->timestamps();
         });
     }

@@ -146,8 +146,8 @@
                                         <label class="form-label">Status Nikah</label>
                                         <select class="form-select @error('status') is-invalid @enderror" name="status">
                                             <option selected disabled>Status Anda</option>
-                                            <option value="SudahMenikah">Sudah Menikah</option>
-                                            <option value="BelumMenikah">Belum Menikah</option>
+                                            <option value="Sudah Menikah">Sudah Menikah</option>
+                                            <option value="Belum Menikah">Belum Menikah</option>
                                         </select>
                                         @error('status')
                                             <span class="invalid-feedback" role="alert">

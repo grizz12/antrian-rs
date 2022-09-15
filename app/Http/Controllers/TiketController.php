@@ -16,8 +16,8 @@ class TiketController extends Controller
     public function index()
     {
         $tiket = Tiket::with('DataPasien')->get();
-        // $tiket = Tiket::all();
-        return view('tiket.index', ['tiket' => $tiket]);
+        //$tiket = Tiket::all();
+        return view ('tiket.index',compact('tiket'));
     }
 
     /**
@@ -29,6 +29,7 @@ class TiketController extends Controller
     {
         $data_pasien = DataPasien::all();
         return view('tiket.create', compact('data_pasien'));
+        //return view('tiket.create');
     }
 
     /**
@@ -43,8 +44,8 @@ class TiketController extends Controller
             'pinjaman' => 'required',
             'poli' => 'required',
             'tgl_kunjungan' => 'required',
-            'id_data_pasien' => 'required|unique:data_pasiens',
-           
+            'id_data_pasien' => 'required|unique:tikets',
+            
         ]);
 
         $tiket = new Tiket();

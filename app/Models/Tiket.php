@@ -13,8 +13,8 @@ class Tiket extends Model
     protected $fillable = ['pinjaman','poli','tgl_kunjungan','id_data_pasien'];
     public $timestamps = true;
 
-    public function data_pasien()
+    public function DataPasien()
     {
-        return $this->belongsTo(DataPasein::class, 'id_data_pasien');
+        return $this->belongsTo(DataPasien::class,'id_data_pasien');
     }
 }

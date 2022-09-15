@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysDataPasiens extends Migration
+class AddForeignKeysTikets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddForeignKeysDataPasiens extends Migration
      */
     public function up()
     {
-        Schema::table('data_pasiens', function (Blueprint $table) {
+        Schema::table('tikets', function (Blueprint $table) {
             $table->foreign('id_data_pasien','fk_data_pasiens_to_tikets')->references('id')
-            ->on('tikets')->onUpdate('CASCADE')->onDelete('CASCADE');
+            ->on('data_pasiens')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -26,7 +26,7 @@ class AddForeignKeysDataPasiens extends Migration
      */
     public function down()
     {
-        Schema::table('data_pasiens', function (Blueprint $table) {
+        Schema::table('tikets', function (Blueprint $table) {
             $table->dropForeign('fk_data_pasiens_to_tikets');
         });
     }

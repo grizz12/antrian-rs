@@ -51,6 +51,23 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Pilih Data Siswa</label>
+                                <select name="id_data_pasien" class="form-control @error('id_data_pasien') is-invalid @enderror"
+                                    readonly>
+                                    @foreach ($data_pasien as $data)
+                                        <option value="{{ $data->id }}"
+                                            {{ $data->id == $tiket->id_data_pasien ? 'selected' : '' }}>
+                                            {{ $data->no_rekam }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('id_data_pasien')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <div class="d-grid gap-2 d-md-block">
                                     <button class="btn btn-primary" type="submit">Save</button>
                                     <a href="{{ route('tiket.index') }}" class="btn btn-primary" type="submit">Kembali</a>

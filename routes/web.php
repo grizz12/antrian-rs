@@ -29,6 +29,9 @@ Route::resource('/tiket',TiketController::class);
 Route::get('/home', function () {
     return view('home');
 });
+Route::get('/pesan', function () {
+    return view('tiket.Pesan.pesan');
+});
 
 // login
 // Route::get('login',Login::class);

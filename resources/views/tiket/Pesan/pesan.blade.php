@@ -28,7 +28,7 @@
                             <label class="form-label">No.Rekam Medis</label>
                             <input type="text" class="form-control" name="no_rekam" value="{{ $tiket->DataPasien['no_rekam'] }}"
                                 readonly>
-                        </div> 
+                        </div>
                         <div class="mb-3">
                             <div class="d-grid gap-2">
                                 <a href="{{ route('tiket.index') }}" class="btn btn-primary" type="submit">Kembali</a>

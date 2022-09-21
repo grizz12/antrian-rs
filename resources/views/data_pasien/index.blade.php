@@ -40,8 +40,7 @@
                                             <td>{{ $data->no_rekam }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->status }}</td>
-                                            <td>{{ $data->alamat }}</td>
-                                              
+                                            <td>{{ $data->alamat }}</td>                                            
                                             <td>{{ $data->kec }}</td>
                                             <td>{{ $data->kota }}</td>
                                             <td>

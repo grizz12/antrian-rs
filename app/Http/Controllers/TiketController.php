@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tiket;
 use App\Models\DataPasien;
+app('App\Http\Controllers\CetakController')->cetak();
 
 class TiketController extends Controller
 {
@@ -120,4 +121,6 @@ class TiketController extends Controller
         $tiket->delete();
         return redirect()->route('tiket.index')->with('succes','Data berhasil dihapus!');
     }
+
+
 }

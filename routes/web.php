@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\InputPasienController;
 use App\Http\Controllers\TiketController;
+use App\Http\Controllers\CetakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,12 +27,12 @@ Route::resource('/input_data',InputPasienController::class);
 
 Route::resource('/tiket',TiketController::class);
 
+Route::resource('/pesan',CetakController::class);
+
 Route::get('/home', function () {
     return view('home');
 });
-Route::get('/pesan', function () {
-    return view('tiket.Pesan.pesan');
-});
+
 
 // login
 // Route::get('login',Login::class);

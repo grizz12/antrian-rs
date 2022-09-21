@@ -4,38 +4,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @include('layouts/_flash')
                 <center>
-                <h1><b>Show Data Pasien</b></h1>
+                    <h1><b>Tiket </b></h1>
+                        @php $no = 1; @endphp
+                            @foreach ($tiket as $data)
+                            <h1><b>No Antrian Anda : <br>
+                                {{ $no++ }}    
+                            </b></h1>
+                            <h1>
+                                <b>No Rekam Medis Anda : <br>
+                                    {{ $data->DataPasien['no_rekam'] }}</b>
+                            </h1>                       
+                    @endforeach
                 </center>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Pilih Jaminan</label>
-                            <input type="text" class="form-control" name="pinjaman" value="{{ $tiket->pinjaman }}"
-                                readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Poliklinik Yang Dituju</label>
-                            <input type="text" class="form-control" name="poli" value="{{ $tiket->poli }}"
-                                readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tanggal Kunjungan</label>
-                            <input type="text" class="form-control" name="tgl_kunjungan" value="{{ $tiket->tgl_kunjungan }}"
-                                readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">No.Rekam Medis</label>
-                            <input type="text" class="form-control" name="no_rekam" value="{{ $tiket->DataPasien['no_rekam'] }}"
-                                readonly>
-                        </div>
-                        <div class="mb-3">
-                            <div class="d-grid gap-2">
-                                <a href="{{ route('tiket.index') }}" class="btn btn-primary" type="submit">Kembali</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

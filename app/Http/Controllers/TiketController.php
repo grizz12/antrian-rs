@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tiket;
 use App\Models\DataPasien;
-app('App\Http\Controllers\CetakController')->cetak();
+//app('App\Http\Controllers\CetakController')->cetak();
 
 class TiketController extends Controller
 {
@@ -20,7 +20,6 @@ class TiketController extends Controller
         //$tiket = Tiket::all();
         return view ('tiket.index',compact('tiket'));
     }
-
     /**
      * Show the form for creating a new resource.
      *

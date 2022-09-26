@@ -21,18 +21,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 Route::resource('/data_pasien',DataPasienController::class);
 
 Route::resource('/input_data',InputPasienController::class);
 
 Route::resource('/tiket',TiketController::class);
 
+//Route::resource('/pesan',CetakController::class);
+// Route::get('/pesan', [App\Http\Controllers\CetakController::class, 'pesan']);
+
 Route::resource('/pesan',CetakController::class);
 
-Route::get('/home', function () {
-    return view('home');
-});
-
+Route::get('/cetak/pesan_pdf','App\Http\Controllers\CetakController@cetak_pdf');
 
 // login
 // Route::get('login',Login::class);

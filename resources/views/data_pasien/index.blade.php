@@ -11,7 +11,7 @@
                 <a href="{{ route('data_pasien.create') }}" class="btn btn-lg btn-primary " style="float: left;">
                         Add Data Pasien
                     </a>
-                    <br><br>
+                    <br><br><br>
                 <div class="card border-secondary">
                     <div class="card-body">
                         <div class="table-responsive">

@@ -175,6 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
 
     ],
 
@@ -233,12 +234,4 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
-    // 'providers' => [
-    //     ... 
-    //     Barryvdh\DomPDF\ServiceProvider::class,
-    //   ],
-    //   'aliases' => [
-    //    'PDF' => Barryvdh\DomPDF\Facade::class,
-    //   ],
-
 ];

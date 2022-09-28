@@ -31,12 +31,9 @@ Route::resource('/input_data',InputPasienController::class);
 
 Route::resource('/tiket',TiketController::class);
 
-//Route::resource('/pesan',CetakController::class);
-// Route::get('/pesan', [App\Http\Controllers\CetakController::class, 'pesan']);
-
 Route::resource('/pesan',CetakController::class);
 
-Route::get('/cetak/pesan_pdf','App\Http\Controllers\CetakController@cetak_pdf');
+Route::get('cetak_pdf/{id}', [App\Http\Controllers\CetakController::class,'cetak_pdf'])->name('cetak_pdf');
 
 // login
 // Route::get('login',Login::class);

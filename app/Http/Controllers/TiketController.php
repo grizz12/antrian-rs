@@ -80,7 +80,7 @@ class TiketController extends Controller
         $tiket = Tiket::FindOrFail($id);
         $data_pasien = DataPasien::all();
         return view('tiket.edit',compact('tiket','data_pasien'));
-    }
+}
 
     /**
      * Update the specified resource in storage.

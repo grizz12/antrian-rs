@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Tiket;
 use App\Models\DataPasien;
 use App\Http\Controllers\TiketController;
-// use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
-use PDF;
+// use PDF;
 
 class CetakController extends Controller
 {
@@ -20,10 +20,10 @@ class CetakController extends Controller
 
     public function cetak_pdf($id){
         $tiket = Tiket::FindOrFail($id);
-        $pdf = PDF::loadview('cetak.pesan_pdf',compact('tiket'));
+        $customPaper = array(0,0,300.80,300.80);
+        $pdf = PDF::loadview('cetak.pesan_pdf', ['tiket' => $tiket])->setPaper($customPaper, 'landscape');
         return $pdf->download('pesan_tiket_pasien.pdf');
         // return $pdf->stream();
-        dd($tiket);
         
     }
 }

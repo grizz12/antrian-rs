@@ -6,11 +6,11 @@
             <div class="col-md-12">
                 @include('layouts/_flash')
                 <center>
-                    <h1><b>Data Pasien </b></h1>
+                    <h1><b>Input Kunjungan Pasien & Tiket </b></h1>
                 </center>
                 <a href="{{ route('tiket.create') }}"
                         class="btn btn-lg btn-primary " style="float: left;">
-                        Add Data Pasien
+                        Input Data Pasien
                     </a>
                     <br><br><br>
                 <div class="card border-secondary">

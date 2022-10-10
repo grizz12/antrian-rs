@@ -5,6 +5,7 @@ use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\InputPasienController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\CetakController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,7 @@ use App\Http\Controllers\CetakController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/data_pasien',DataPasienController::class);
 
@@ -37,3 +35,7 @@ Route::get('cetak_pdf/{id}', [App\Http\Controllers\CetakController::class,'cetak
 
 // login
 // Route::get('login',Login::class);
+
+Auth::routes();
+
+

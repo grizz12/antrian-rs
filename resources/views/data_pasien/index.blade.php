@@ -78,7 +78,7 @@
                             <br>
                             
                             <a href="/home" class="btn btn-primary" type="submit"  style="float: right;">Kembali</a>
-                            <a href="{{ route('tiket.create', $data->id) }}"class="btn btn-primary" style="background-color:green;color:white;">Pesan Tiket</a>                        
+                            <a href="{{ route('tiket.create', $data->id) }}"class="btn btn-success">Pesan Tiket</a>                        
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@
             <li class="nav-item">
               <a href="/tiket" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Input Tiket Pasien</p>
+                <p>Kunjungan & Tiket</p>
               </a>
             </li>
           </ul>

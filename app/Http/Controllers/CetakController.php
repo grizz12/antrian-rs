@@ -12,6 +12,12 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class CetakController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function show($id){
         $tiket = Tiket::FindOrFail($id);
         return view('cetak.pesan',compact('tiket'));
@@ -20,7 +26,7 @@ class CetakController extends Controller
 
     public function cetak_pdf($id){
         $tiket = Tiket::FindOrFail($id);
-        $customPaper = array(0,0,300.80,300.80);
+        $customPaper = array(0,0,390,390);
         $pdf = PDF::loadview('cetak.pesan_pdf', ['tiket' => $tiket])->setPaper($customPaper, 'landscape');
         return $pdf->download('pesan_tiket_pasien.pdf');
         // return $pdf->stream();

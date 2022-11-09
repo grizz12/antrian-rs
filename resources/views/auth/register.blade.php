@@ -13,16 +13,30 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+
+  <link rel="icon" type="image/x-icon" href="/images/Politeknik_Piksi_Ganesha_Bandung.png">
 </head>
+<style>
+  body {
+    background-image: url('images/Poster.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  </style>
 <body class="hold-transition register-page">
-<div class="register-box">
-  <div class="register-logo">
-    <a href="{{url('/admin')}}"><b>Klinik</b><small>sederhana</small></a>
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{{asset('images')}}/Politeknik_Piksi_Ganesha_Bandung.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
+<div class="register-box">
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <div class="title" align="center">
+        <h2><b>Klinik</b><small>sederhana</small></h2>
+          <img src="{{asset('images')}}/piksi ganesha hospital.png" width="200px" alt="">
+          <br><br> 
+          <p class="login-box-msg">Register</p>
+        </div>
 
       <form action="{{route('register')}}" method="post">
         @csrf

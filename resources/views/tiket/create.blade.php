@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 @include('layouts._flash')
                 <center>
-                    <h1><b>Add Data Pasien</b></h1>
+                    <h1><b>Tambah Data Pasien</b></h1>
                 </center>
                 <div class="card border-secondary">
                     <div class="card-body">
@@ -16,8 +16,8 @@
                                 <label class="form-label">Pilih Jaminan</label>
                                 <select class="form-select @error('pinjaman') is-invalid @enderror" name="pinjaman">
                                     <option selected disabled>Pilih Jaminan</option>
-                                    <option value="Pasien Jkn">Pasien Jkn</option>
-                                    <option value="Pasien Umum">Pasien Umum</option>
+                                    <option value="JKN">JKN</option>
+                                    <option value="UMUM">UMUM</option>
                                 </select>
                                 @error('pinjaman')
                                     <span class="invalid-feedback" role="alert">
@@ -29,9 +29,9 @@
                                 <label class="form-label">Poliklinik Yang Dituju</label>
                                 <select class="form-select @error('poli') is-invalid @enderror" name="poli">
                                     <option selected disabled>Pilih Poliklinik</option>
-                                    <option value="Poliklinik Epilepsi">Poliklinik Epilepsi</option>
-                                    <option value="Poliklinik Neurologi Umum">Poliklinik Neurologi Umum</option>
-                                    <option value="Poliklinik Neurovaskular">Poliklinik Neurovaskular</option>
+                                    <option value="Poliklinik_Epilepsi">Poliklinik Epilepsi</option>
+                                    <option value="Poliklinik_Neurologi_Umum">Poliklinik Neurologi Umum</option>
+                                    <option value="Poliklinik_Neurovaskular">Poliklinik Neurovaskular</option>
                                 </select>
                                 @error('poli')
                                     <span class="invalid-feedback" role="alert">
@@ -62,9 +62,19 @@
                                     </span>
                                 @enderror
                             </div>
+                            
+                            {{-- <div class="mb-3">
+                                <label for="">No Rekam Medis</label>
+                                <input type="text" name="id_data_pasien" id="id_data_pasien" placeholder="Masukan No Rekam Medis" class="form-control @error('id_data_pasien') is-invalid @enderror">
+                                @error('id_data_pasien')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div> --}}
                             <div class="mb-3">
                                 <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    <button class="btn btn-primary"  type="submit">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -74,3 +84,31 @@
         </div>
     </div>
 @endsection
+
+{{-- <script>
+    $(document).ready(function(){
+    
+     $('#id_data_pasien').keyup(function(){ 
+            var query = $(this).val();
+            if(query != '')
+            {
+             var _token = $('input[name="_token"]').val();
+             $.ajax({
+              url:"{{ route('tiket.fetch') }}",
+              method:"POST",
+              data:{query:query, _token:_token},
+              success:function(data){
+               $('#norekamList').fadeIn();  
+                        $('#norekamList').html(data);
+              }
+             });
+            }
+        });
+    
+        $(document).on('click', 'li', function(){  
+            $('#id_data_pasien').val($(this).text());  
+            $('#norekamList').fadeOut();  
+        });  
+    
+    });
+</script> --}}

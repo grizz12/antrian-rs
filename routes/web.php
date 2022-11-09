@@ -21,6 +21,11 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/profil', function () {
+    return view('profil');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/data_pasien',DataPasienController::class);
@@ -28,6 +33,9 @@ Route::resource('/data_pasien',DataPasienController::class);
 Route::resource('/input_data',InputPasienController::class);
 
 Route::resource('/tiket',TiketController::class);
+
+// Route::get('/action',[TiketController::class,'action'])->name('tiket.action');
+
 
 Route::resource('/pesan',CetakController::class);
 
@@ -38,4 +46,6 @@ Route::get('cetak_pdf/{id}', [App\Http\Controllers\CetakController::class,'cetak
 
 Auth::routes();
 
+Route::get('/export/data_pasien',[App\Http\Controllers\DataPasienController::class, 'dataExport'])->name('dataExport');
 
+Route::get('/export/Kunjungan&Tiket',[App\Http\Controllers\TiketController::class, 'tiketExport'])->name('tiketExport');

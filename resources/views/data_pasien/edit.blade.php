@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 @include('layouts/_flash')
-                <center>
-                    <h1><b>Update Data Pasien</b></h1>
-                </center>
+                {{-- <center>
+                    <h1><b>{{ $title }}</b></h1>
+                </center> --}}
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('data_pasien.update', $data_pasien->id) }}" method="post">

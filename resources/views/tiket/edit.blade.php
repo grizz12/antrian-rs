@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 @include('layouts._flash')
-                <center>
-                    <h1><b>Update Data Pasien</b></h1>
-                </center>
+                {{-- <center>
+                    <h1><b>{{ $title }}</b></h1>
+                </center> --}}
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('tiket.update', $tiket->id) }}" method="post">
@@ -16,9 +16,9 @@
                             <div class="mb-3">
                                 <label class="form-label">Pilih Jaminan</label>
                                 <select class="form-select @error('pinjaman') is-invalid @enderror" name="pinjaman" value="{{ $tiket->pinjaman }}">
-                                    <option selected disabled>Pilih Jaminan</option>
-                                    <option value="Pasien JKN">Pasien JKN</option>
-                                    <option value="Pasien Umum">Pasien Umum</option>
+                                    <option selected disabled>Pilih Jaminan Pasien</option>
+                                    <option value="JKN">JKN</option>
+                                    <option value="UMUM">UMUM</option>
                                 </select>
                                 @error('pinjaman')
                                     <span class="invalid-feedback" role="alert">

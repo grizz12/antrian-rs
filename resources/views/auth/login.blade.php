@@ -78,6 +78,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <title>Klinik sederhana | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -88,16 +89,31 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+
+  <link rel="icon" type="image/x-icon" href="/images/Politeknik_Piksi_Ganesha_Bandung.png">
+
 </head>
+<style>
+  body {
+    background-image: url('images/Poster.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  </style>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="{{url('/admin')}}"><b>Klinik</b><small>sederhana</small></a>
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{{asset('images')}}/Politeknik_Piksi_Ganesha_Bandung.png" alt="AdminLTELogo" height="60" width="60">
   </div>
-  <!-- /.login-logo -->
+  
+<div class="login-box">
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <div class="title" align="center">
+    <h2><b>Klinik</b><small>sederhana</small></h2>
+      <img src="{{asset('images')}}/piksi ganesha hospital.png" width="200px" alt="">
+      <br><br> 
+      <p class="login-box-msg">Sign in</p>
+    </div>
       
       <form action="{{route('login')}}" method="post">
       @csrf

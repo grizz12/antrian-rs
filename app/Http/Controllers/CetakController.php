@@ -20,7 +20,9 @@ class CetakController extends Controller
     
     public function show($id){
         $tiket = Tiket::FindOrFail($id);
-        return view('cetak.pesan',compact('tiket'));
+        return view('cetak.pesan',compact('tiket'), [
+            'title' => 'Tiket Pasien',
+        ]);
         
     }
 

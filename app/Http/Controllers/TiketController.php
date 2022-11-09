@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tiket;
 use App\Models\DataPasien;
+use App\Exports\TiketExport;
+use Maatwebsite\Excel\Facades\Excel;
 //app('App\Http\Controllers\CetakController')->cetak();
 
 class TiketController extends Controller
@@ -24,7 +26,13 @@ class TiketController extends Controller
     {
         $tiket = Tiket::with('DataPasien')->get();
         //$tiket = Tiket::all();
-        return view ('tiket.index',compact('tiket'));
+        return view ('tiket.index',compact('tiket'), [
+            'title' => 'Input Kunjungan & Tiket',
+        ]);
+    }
+
+    public function tiketExport(){
+        return Excel::download(new TiketExport,'Kunjungan & Tiket.xlsx');
     }
     /**
      * Show the form for creating a new resource.
@@ -34,7 +42,9 @@ class TiketController extends Controller
     public function create()
     {
         $data_pasien = DataPasien::all();
-        return view('tiket.create', compact('data_pasien'));
+        return view('tiket.create', compact('data_pasien'), [
+            'title' => 'Tambah Data Kunjungan & Tiket',
+        ]);
         //return view('tiket.create');
     }
 
@@ -51,7 +61,7 @@ class TiketController extends Controller
             'poli' => 'required',
             'tgl_kunjungan' => 'required',
             'id_data_pasien' => 'required|unique:tikets',
-            
+             
         ]);
 
         $tiket = new Tiket();
@@ -60,7 +70,10 @@ class TiketController extends Controller
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
         $tiket->id_data_pasien = $request->id_data_pasien;
         $tiket->save();
-        return redirect()->route('tiket.index')->with('succes','Data berhasil dibuat!');
+
+        $cariIDPasiaen = Tiket::select('id')->where('id_data_pasien', $request->id_data_pasien)->get();
+        // dd($cariIDPasiaen[0]['id']);
+        return redirect()->route('pesan.show', $cariIDPasiaen[0]['id'])->with('succes','Data berhasil dibuat!');
     }
 
     /**
@@ -72,7 +85,9 @@ class TiketController extends Controller
     public function show($id)
     {
         $tiket = Tiket::FindOrFail($id);
-        return view('tiket.show',compact('tiket'));
+        return view('tiket.show',compact('tiket'), [
+            'title' => 'Lihat Data Kunjungan & Tiket',
+        ]);
     }
 
     /**
@@ -85,7 +100,9 @@ class TiketController extends Controller
     {
         $tiket = Tiket::FindOrFail($id);
         $data_pasien = DataPasien::all();
-        return view('tiket.edit',compact('tiket','data_pasien'));
+        return view('tiket.edit',compact('tiket','data_pasien'), [
+            'title' => 'Ubah Data Kunjungan & Tiket',
+        ]);
 }
 
     /**

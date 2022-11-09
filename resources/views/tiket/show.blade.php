@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <center>
-                <h1><b>Show Data Pasien</b></h1>
-                </center>
+                {{-- <center>
+                <h1><b>{{ $title }}</b></h1>
+                </center> --}}
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">

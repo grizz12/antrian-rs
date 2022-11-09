@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataPasien;
+use App\Exports\DataPasienExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DataPasienController extends Controller
 {
@@ -13,14 +15,27 @@ class DataPasienController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
      
     public function index()
     {
         
         $data_pasien = DataPasien::all();
-        return view ('data_pasien.index',compact('data_pasien'));
+        return view ('data_pasien.index',compact('data_pasien'), [
+            'title' => 'Data Pasien',
+        ]);
     }
+
+
+    public function dataExport(){
+        return Excel::download(new DataPasienExport,'DataPasien.xlsx');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +44,9 @@ class DataPasienController extends Controller
      */
     public function create()
     {
-        return view('data_pasien.create');
+        return view('data_pasien.create', [
+            'title' => 'Tambah Data Pasien',
+        ]);
     }
 
     /**
@@ -73,7 +90,7 @@ class DataPasienController extends Controller
         $data_pasien->status = $request->status;
         $data_pasien->jenis_kelamin = $request->jenis_kelamin;
         $data_pasien->save();
-        return redirect()->route('data_pasien.index')->with('succes','Data berhasil dibuat!');
+        return redirect()->route('tiket.create')->with('succes','Data berhasil dibuat!');
     }
 
     /**
@@ -86,7 +103,9 @@ class DataPasienController extends Controller
     {
         //
         $data_pasien = DataPasien::FindOrFail($id);
-        return view('data_pasien.show',compact('data_pasien'));
+        return view('data_pasien.show',compact('data_pasien'),[
+            'title' => 'Lihat Data Pasien',
+        ]);
     }
 
     /**
@@ -99,7 +118,9 @@ class DataPasienController extends Controller
     {
         //
         $data_pasien = DataPasien::FindOrFail($id);
-        return view('data_pasien.edit',compact('data_pasien'));
+        return view('data_pasien.edit',compact('data_pasien'), [
+            'title' => 'Ubah Data Pasien',
+        ]);
     }
 
     /**

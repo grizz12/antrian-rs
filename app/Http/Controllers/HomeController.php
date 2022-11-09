@@ -28,7 +28,9 @@ class HomeController extends Controller
         $data_pasien = DataPasien::count();
         $tiket = Tiket::count();
 
-        return view('home',compact('data_pasien','tiket'));
+        return view('home',compact('data_pasien','tiket'),[
+            'title' => 'Home',
+        ]);
 
     }
 }

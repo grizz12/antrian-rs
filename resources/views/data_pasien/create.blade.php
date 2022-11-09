@@ -6,14 +6,13 @@
             <div class="col-md-12">
                 @include('layouts._flash')
                 <center>
-                    <h1><b>Add Data Pasien</b></h1>
+                    {{-- <h1><b>{{ $title }}</b></h1> --}}
                 </center>
                 <div class="card border-secondary">
                     <div class="card-body">
                         <form action="{{ route('data_pasien.store') }}" method="post">
                             @csrf
                             <div class="row">
-
                                 <!-- Column 1 -->
                                 <div class="col-sm">
                                     <div class="mb-3">

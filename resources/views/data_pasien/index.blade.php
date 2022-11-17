@@ -82,7 +82,7 @@
                             <br>
                             
                             <a href="/home" class="btn btn-primary" type="submit"  style="float: right;">Kembali</a>
-                            <a href="{{ route('tiket.create') }}"class="btn btn-warning">Pesan Tiket</a>                        
+                            <a href="{{ route('tiket.create') }}"class="btn btn-primary">Pesan Tiket</a>                        
                         </div>
                     </div>
                 </div>

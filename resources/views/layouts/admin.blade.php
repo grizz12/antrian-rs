@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Klinik sederhana || {{$title}}</title>
+  <title>Piksi Hospital || {{$title}}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,9 +26,11 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
 
-  <link rel="icon" type="image/x-icon" href="/images/Politeknik_Piksi_Ganesha_Bandung.png">
+  <link rel="icon" type="image/x-icon" href="/images/PIKSI.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  
 
   
   <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
@@ -38,7 +40,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('images')}}/Politeknik_Piksi_Ganesha_Bandung.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{asset('images')}}/PIKSI.png" alt="Piksi Ganesha" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -46,13 +48,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="/home" class="brand-link">
-      <img src="{{asset('images')}}/piksi ganesha hospital.png" alt="Piksi Ganesha Logo" class="brand-image" style="width:35px ;opacity: .8">
-      <span class="brand-text font-weight-light"><b>Klinik</b><small>Sederhana</small></span>
-    </a>
-
+  <aside class="main-sidebar sidebar-white-primary elevation-4">
     <!-- Sidebar -->
     @include('layouts.components.sidebar')
     <!-- /.sidebar -->
@@ -80,20 +76,16 @@
   </div>
   <!-- /.content-wrapper -->
 
-
-      <footer class="main-footer  flex-wrap  align-items-center"align="center" >
-        <p>&copy; 2022 Politeknik Piksi Ganesha & SMK ASSALAAM BANDUNG <br>
-        Create By PKL SMK ASSALAAM BANDUNG</p>
-    
-      </footer>    
-      
-
-
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+  <aside class="control-sidebar ">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+  <footer class="main-footer  flex-wrap  align-items-center"align="center" >
+    <p>&copy; 2022 Politeknik Piksi Ganesha & SMK ASSALAAM BANDUNG <br>
+    Create By PKL SMK ASSALAAM BANDUNG</p>
+
+  </footer> 
 </div>
 <!-- ./wrapper -->
 

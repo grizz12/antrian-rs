@@ -6,6 +6,10 @@ use App\Http\Controllers\InputPasienController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\CetakController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +45,24 @@ Route::resource('/pesan',CetakController::class);
 
 Route::get('cetak_pdf/{id}', [App\Http\Controllers\CetakController::class,'cetak_pdf'])->name('cetak_pdf');
 
-// login
-// Route::get('login',Login::class);
+// // // login
+// Route::get('login',LoginController::class, 'login');
 
-Auth::routes();
+//LOGIN & LOGOUT
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login',[LoginController::class,'authenticate']);
+Route::post('/logout',[LoginController::class,'logout']);
+
+//REGISTER
+Route::get('/register',[RegisterController::class,'index'])->middleware('guest');
+Route::post('/register',[RegisterController::class,'store']);
 
 Route::get('/export/data_pasien',[App\Http\Controllers\DataPasienController::class, 'dataExport'])->name('dataExport');
 
 Route::get('/export/Kunjungan&Tiket',[App\Http\Controllers\TiketController::class, 'tiketExport'])->name('tiketExport');
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('/dashboard/categories',AdminCategoryController::class)->except('show');

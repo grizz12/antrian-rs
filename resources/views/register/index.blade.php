@@ -48,13 +48,13 @@
           <div class="card-img-left d-none d-md-flex">
             <!-- Background image for card set in CSS! -->
           </div>
-          <div class="card-body p-4 p-sm-5">
+          <div class="card-body p-4 p-sm-5 align-top">
             <div class="title" align="center">
               <h2><b>Piksi</b><small>Hospital</small></h2>
                 <img src="{{asset('images')}}/piksi ganesha hospital.png" width="200px" alt="">
                 <br><br> 
               </div>
-              <p align="center">Sign in</p>
+              <p align="center">Sign up</p>
               <form action="/register" method="post">
                 @csrf
                 <div class="input-group mb-3">

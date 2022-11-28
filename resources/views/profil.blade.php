@@ -5,16 +5,13 @@
 <div class="container">
     <!-- Profile Image -->
 
-    <h1 align="center"><b>Profile</b></h1>
     <div class="card card-primary md-3 card-outline">
         <div class="card-body box-profile">
-          {{-- <div class="text-center">
-            <img class="profile-user-img img-fluid img-circle"
-                 src="../../dist/img/user4-128x128.jpg"
-                 alt="User profile picture">
-          </div> --}}
+          <div class="text-center">
+            <p class="text-center" style="font-size: 50px"><b>Piksi</b><small>Hospital</small></p>
+            <img src="{{asset('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          </div>
 
-          <h1 class="brand-text font-weight-light text-center"><b>Klinik</b><small>Sederhana</small></h1>
           <br>
 
           <ul class="list-group list-group-unbordered mb-3">

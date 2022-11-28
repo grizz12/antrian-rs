@@ -66,7 +66,7 @@
             <!-- Background image for card set in CSS! -->
           </div>
 
-          <div class="card-body p-4 p-sm-5">
+          <div class="card-body p-4 p-sm-5 align-top">
             <div class="title" align="center">
               <h2><b>Piksi</b><small>Hospital</small></h2>
                 <img src="{{asset('images')}}/piksi ganesha hospital.png" width="200px" alt="">

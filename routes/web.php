@@ -6,6 +6,7 @@ use App\Http\Controllers\InputPasienController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\CetakController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminCategoryController;
@@ -26,9 +27,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profil', function () {
-    return view('profil');
-});
+// Route::get('/profil', function () {
+//     return view('profil');
+// });
+
+Route::get('/profil', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -39,6 +42,17 @@ Route::resource('/input_data',InputPasienController::class);
 Route::resource('/tiket',TiketController::class);
 
 // Route::get('/action',[TiketController::class,'action'])->name('tiket.action');
+
+//ROUTE DATA PASIEN
+
+// Route::resource(DataPasienController::class)->group(function () {
+//     Route::get('/data_pasien/index', 'index');
+//     Route::get('/data_pasien/create', 'create');
+//     Route::get('/data_pasien/edit/{id}', 'edit');
+//     Route::post('/data_pasien/store', 'store');
+//     Route::post('/data_pasien/update', 'update');
+//     Route::get('/data_pasien/delete/{id}', 'destroy');
+// });
 
 
 Route::resource('/pesan',CetakController::class);
@@ -63,6 +77,4 @@ Route::get('/export/Kunjungan&Tiket',[App\Http\Controllers\TiketController::clas
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('/dashboard/categories',AdminCategoryController::class)->except('show');
+// Route::resource('/admin/data_pasien',AdminCategoryController::class)->except('show');

@@ -86,6 +86,131 @@
                     </div>
                 </div>
                 
+                    <div class="row">
+                      <div class="col">
+                        <div class="card card-primary" >
+                            <div class="card-header">
+                              <h3 class="card-title">Jaminan Chart</h3>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart">
+                                <canvas id="jaminan" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              </div>
+                            </div>
+                            <!-- /.card-body -->
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="card card-primary" >
+                            <div class="card-header">
+                              <h3 class="card-title">Poliklinik Chart</h3>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart">
+                                <canvas id="poliklinik" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                              </div>
+                            </div>
+                            <!-- /.card-body -->
+                          </div>
+                      </div>
+                    </div>
+                  
+               
+
+                
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                {{-- Chart JS Pinjaman --}}
+                <script>
+                    var ctx = document.getElementById('jaminan').getContext('2d');
+                    var jaminan = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ["Pasien JKN","Pasien UMUM"],
+                            datasets: [{
+                            
+                                data: [    
+                                    <?php
+                                    $conn = mysqli_connect('localhost','root','','piksi_ganesha');
+                                    $jumlah_jkn = mysqli_query($conn, "SELECT pinjaman, pinjaman FROM tikets WHERE pinjaman='JKN'");
+                                    echo mysqli_num_rows($jumlah_jkn);
+                                    ?>, 
+                                    <?php
+                                    $jumlah_umum = mysqli_query($conn, "SELECT pinjaman, pinjaman FROM tikets WHERE pinjaman='UMUM'");
+                                    echo mysqli_num_rows($jumlah_umum);
+                                    ?>, 
+                                ],
+                                backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                ],
+                                borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+        </script>
+
+        <script>
+                    var ctx = document.getElementById('poliklinik').getContext('2d');
+                    var poliklinik = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ["Poliklinik Epilepsi","Poliklinik Neurologi Umum","Poliklinik Neurovaskular"],
+                            datasets: [{
+                            
+                                data: [    
+                                    <?php
+                                    $conne = mysqli_connect('localhost','root','','piksi_ganesha');
+                                    $jumlah_epilepsi = mysqli_query($conne, "SELECT poli, poli FROM tikets WHERE poli='Poliklinik_Epilepsi'");
+                                    echo mysqli_num_rows($jumlah_epilepsi);
+                                    ?>, 
+                                    <?php
+                                    $jumlah_neurologi = mysqli_query($conne, "SELECT poli, poli FROM tikets WHERE poli='Poliklinik_Neurologi_Umum'");
+                                    echo mysqli_num_rows($jumlah_neurologi);
+                                    ?>, 
+                                    <?php
+                                    $jumlah_neurovaskular = mysqli_query($conne, "SELECT poli, poli FROM tikets WHERE poli='Poliklinik_Neurovaskular'");
+                                    echo mysqli_num_rows($jumlah_neurovaskular);
+                                    ?>,
+                                ],
+                                backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                ],
+                                borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgb(153, 102, 255)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+            </script>
+  
+
       </div>
     </div>
 @endsection

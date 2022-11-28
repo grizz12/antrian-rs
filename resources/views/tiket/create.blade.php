@@ -5,13 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 @include('layouts._flash')
-                <center>
+                {{-- <center>
                     <h1><b>Tambah Data Pasien</b></h1>
-                </center>
+                </center> --}}
                 <div class="card border-secondary">
                     <div class="card-body">
                         <form action="{{ route('tiket.store') }}" method="post">
-                            @csrf
+                            @csrf 
                             <div class="mb-3">
                                 <label class="form-label">Pilih Jaminan</label>
                                 <select class="form-select @error('pinjaman') is-invalid @enderror" name="pinjaman">

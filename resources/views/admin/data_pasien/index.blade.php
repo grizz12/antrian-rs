@@ -4,15 +4,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                @include('layouts/_flash')
+                @include('layouts._flash')
                 {{-- <center>
-                    <h1><b>Input Kunjungan Pasien & Tiket </b></h1>
+                    <h1><b>{{ $title }}</b></h1>
                 </center> --}}
-                <a href="{{ route('tiket.create') }}"
-                        class="btn btn-primary " style="float: right;">
-                        Input Data Pasien
+                <a href="/admin/data_pasien/create" class="btn btn-primary " style="float: right;">
+                        Tambah Data Pasien
                     </a>
-                    <a href="/export/Kunjungan&Tiket" class="btn btn-success " style="float: left;">
+                    
+                    <a href="/export/data_pasien" class="btn btn-success " style="float: left;">
                         Export Excel
                     </a>
                     <br><br>
@@ -23,35 +23,32 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Jaminan Pembiayaan</th>
-                                        <th>Poliklinik Yang Dituju</th>
-                                        <th>Tanggal Kunjungan</th>
-                                        <th>No.Rekam Medis</th>
+                                        <th>No.RM</th>
+                                        <th>Nama Pasien</th>
+                                        <th>Status Nikah</th>
+                                        <th>Alamat</th>
+                                        <th>Kecamatan</th>
+                                        <th>KOTA/KABUPATEN</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $no = 1; @endphp
-                                    @foreach ($tiket as $data)
+                                    @foreach ($ as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->pinjaman }}</td>
-                                            <td>{{ $data->poli }}</td>
-                                            <td>{{ $data->tgl_kunjungan }}</td>
-                                            <td>{{ $data->DataPasien['no_rekam'] }}</td>
+                                            <td>{{ $data->no_rekam }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->status }}</td>
+                                            <td>{{ $data->alamat }}</td>                                            
+                                            <td>{{ $data->kec }}</td>
+                                            <td>{{ $data->kota }}</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                <form action="{{ route('tiket.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('data_pasien.destroy', $data->id) }}" method="post">
                                                     @method('delete')
                                                     @csrf
-                                                    <a href="{{ route('pesan.show', $data->id) }}"
-                                                        class="btn btn-sm btn-info" style="background-color:green" >
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16" style="color:white;">
-                                                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 
-                                                             2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                                                          </svg>
-                                                    </a>
-                                                    <a href="{{ route('tiket.edit', $data->id) }}"
+                                                    <a href="{{ route('data_pasien.edit', $data->id) }}"
                                                         class="btn btn-sm btn-warning">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="color: white;"> 
                                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 
@@ -60,7 +57,7 @@
                                                             0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                           </svg>
                                                     </a> 
-                                                    <a href="{{ route('tiket.show', $data->id) }}"
+                                                    <a href="{{ route('data_pasien.show', $data->id) }}"
                                                         class="btn btn-sm btn-info">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="color: white;">
                                                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
@@ -82,12 +79,14 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <br>
+                            
+                            <a href="/home" class="btn btn-primary" type="submit"  style="float: right;">Kembali</a>
+                            <a href="{{ route('tiket.create') }}"class="btn btn-primary">Pesan Tiket</a>                        
                         </div>
                     </div>
                 </div>
-                
-      </div>
+            </div>
+        </div>
     </div>
 @endsection
-
-

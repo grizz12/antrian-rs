@@ -23,7 +23,7 @@ class DataPasienController extends Controller
      
     public function index()
     {
-        
+
         $data_pasien = DataPasien::all();
         return view ('data_pasien.index',compact('data_pasien'), [
             'title' => 'Data Pasien',

@@ -48,7 +48,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-white-primary elevation-4">
+  <aside class="main-sidebar sidebar-white-primary elevation-4" >
     <!-- Sidebar -->
     @include('layouts.components.sidebar')
     <!-- /.sidebar -->
@@ -82,9 +82,8 @@
   </aside>
   <!-- /.control-sidebar -->
   <footer class="main-footer  flex-wrap  align-items-center"align="center" >
-    <p>&copy; 2022 Politeknik Piksi Ganesha & SMK ASSALAAM BANDUNG <br>
-    Create By PKL SMK ASSALAAM BANDUNG</p>
-
+    <p>&copy; 2022 Politeknik Piksi Ganesha<br>
+    Create PKL SMK ASSALAAM BANDUNG</p>
   </footer> 
 </div>
 <!-- ./wrapper -->

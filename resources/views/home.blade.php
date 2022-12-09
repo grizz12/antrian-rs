@@ -3,7 +3,7 @@
 @section('content')
 
  <div class="container"> 
-  <img src="images/poster.png" alt="Lights" style="width:100%;">
+  <img src="images/Poster.png" alt="Lights" style="width:100%;">
   <hr>  
   <div class="row justify-content-center">
     {{-- <p align="center" style="font-size: 40px"><b>INFORMASI DATA PASIEN</b></p> --}}
@@ -107,7 +107,7 @@
                             
                                 data: [    
                                     <?php
-                                    $conn = mysqli_connect('localhost','root','','piksi_ganesha');
+                                    $conn = mysqli_connect('127.0.0.1','root','','piksi_ganesha');
                                     $jumlah_jkn = mysqli_query($conn, "SELECT pinjaman, pinjaman FROM tikets WHERE pinjaman='JKN'");
                                     echo mysqli_num_rows($jumlah_jkn);
                                     ?>, 
@@ -149,7 +149,7 @@
                             
                                 data: [    
                                     <?php
-                                    $conne = mysqli_connect('localhost','root','','piksi_ganesha');
+                                    $conne = mysqli_connect('127.0.0.1','root','','piksi_ganesha');
                                     $jumlah_epilepsi = mysqli_query($conne, "SELECT poli, poli FROM tikets WHERE poli='Poliklinik_Epilepsi'");
                                     echo mysqli_num_rows($jumlah_epilepsi);
                                     ?>, 

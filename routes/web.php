@@ -35,6 +35,7 @@ Route::get('/profil', [App\Http\Controllers\ProfileController::class, 'index'])-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::resource('/data_pasien',DataPasienController::class);
 
 Route::resource('/input_data',InputPasienController::class);

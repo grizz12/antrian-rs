@@ -60,6 +60,7 @@ class TiketController extends Controller
             'pinjaman' => 'required',
             'poli' => 'required',
             'tgl_kunjungan' => 'required',
+            'dokter' => 'required',
             'id_data_pasien' => 'required|unique:tikets',
              
         ]);
@@ -68,6 +69,7 @@ class TiketController extends Controller
         $tiket->pinjaman = $request->pinjaman;
         $tiket->poli = $request->poli;
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
+        $tiket->dokter = $request->dokter;
         $tiket->id_data_pasien = $request->id_data_pasien;
         $tiket->save();
 
@@ -118,6 +120,7 @@ class TiketController extends Controller
             'pinjaman' => 'required',
             'poli' => 'required',
             'tgl_kunjungan' => 'required',
+            'dokter' => 'required',
             'id_data_pasien' => 'required',
 
         ]);
@@ -126,6 +129,7 @@ class TiketController extends Controller
         $tiket->pinjaman = $request->pinjaman;
         $tiket->poli = $request->poli;
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
+        $tiket->dokter = $request->dokter;
         $tiket->id_data_pasien = $request->id_data_pasien;
         $tiket->save();
         return redirect()->route('tiket.index')->with('succes','Data berhasil dibuat!');

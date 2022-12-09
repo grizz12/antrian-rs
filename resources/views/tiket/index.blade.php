@@ -26,6 +26,7 @@
                                         <th>Jaminan Pembiayaan</th>
                                         <th>Poliklinik Yang Dituju</th>
                                         <th>Tanggal Kunjungan</th>
+                                        <th>Nama Dokter</th>
                                         <th>No.Rekam Medis</th>
                                         <th>Action</th>
                                     </tr>
@@ -38,6 +39,7 @@
                                             <td>{{ $data->pinjaman }}</td>
                                             <td>{{ $data->poli }}</td>
                                             <td>{{ $data->tgl_kunjungan }}</td>
+                                            <td>{{ $data->dokter }}</td>
                                             <td>{{ $data->DataPasien['no_rekam'] }}</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">

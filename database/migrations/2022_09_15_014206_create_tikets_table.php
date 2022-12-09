@@ -19,6 +19,7 @@ class CreateTiketsTable extends Migration
             $table->string('pinjaman')->nullable();
             $table->string('poli')->nullable();
             $table->date('tgl_kunjungan')->nullable();
+            $table->string('dokter')->nullable();
             $table->timestamps();
         });
     }

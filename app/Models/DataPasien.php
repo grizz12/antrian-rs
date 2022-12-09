@@ -11,8 +11,31 @@ class DataPasien extends Model
     protected $table = 'data_pasiens';
     
     protected $fillable = [
-        'no_rekam','nama','tgl_lahir','umur','no_tlp','alamat','kec','kota','nama_orang_tua',
-        'alamat_orang_tua','pekerjaan','agama','status','jenis_kelamin'];
+        'no_rekam',
+        'nama',
+        'tmp_lahir',
+        'tgl_lahir',
+        'pendidikan',
+        'nik',
+        'gol_darah',
+        'alergi',
+        'keterangan_alergi',
+        'no_tlp',
+        'alamat',
+        'kec',
+        'kota',
+        'pekerjaan',
+        'agama',
+        'status',
+        'jenis_kelamin',
+        'pilih_orang_tua',
+        'nama_orang_tua',
+        'tgl_lahir_orang_tua',
+        'alamat_orang_tua',
+        'pekerjaan_orang_tua',
+        'penghasilan_orang_tua',
+        'pendidikan_orang_tua', 
+    ];
     public $timestamps = true;
 
     

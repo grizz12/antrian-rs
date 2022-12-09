@@ -49,6 +49,22 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Nama Dokter</label>
+                                <select class="form-select @error('dokter') is-invalid @enderror" name="dokter">
+                                    <option selected disabled>Pilih Dokter</option>
+                                    <option value="Dr.Afif Maulana"> Dr.Afif Maulana</option>
+                                    <option value="Dr.Hasan Widjaya">Dr.Hasan Widjaya</option>
+                                    <option value="Dr.Sandi Hafizh">Dr.Sandi Hafizh</option>
+                                    <option value="Dr.Weda Karisma">Dr.Weda Karisma</option>
+                                    <option value="Dr.Rizki Naif">Dr.Rizki Naif</option>
+                                </select>
+                                @error('dokter')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Pilih No.Rekam Medis</label>
                                 <select name="id_data_pasien" class="form-control @error('id_data_pasien') is-invalid @enderror"
                                     id="">

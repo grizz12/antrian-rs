@@ -29,6 +29,7 @@ class TiketController extends Controller
         return view ('tiket.index',compact('tiket'), [
             'title' => 'Input Kunjungan & Tiket',
         ]);
+        
     }
 
     public function tiketExport(){

@@ -40,6 +40,16 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="">Waktu Kunjungan</label>
+                                <input type="time" name="waktu_kunjungan" class="form-control @error('waktu_kunjungan') is-invalid @enderror">
+                                @error('waktu_kunjungan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="">Tanggal Kunjungan</label>
                                 <input type="date" name="tgl_kunjungan" class="form-control @error('tgl_kunjungan') is-invalid @enderror">
                                 @error('tgl_kunjungan')

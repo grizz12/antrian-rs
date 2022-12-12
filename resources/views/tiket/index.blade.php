@@ -23,8 +23,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Jaminan Pembiayaan</th>
+                                        <th>Jaminan</th>
                                         <th>Poliklinik Yang Dituju</th>
+                                        <th>Waktu Kunjungan</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Nama Dokter</th>
                                         <th>No.Rekam Medis</th>
@@ -38,6 +39,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->pinjaman }}</td>
                                             <td>{{ $data->poli }}</td>
+                                            <td>{{ $data->waktu_kunjungan}}</td>
                                             <td>{{ $data->tgl_kunjungan }}</td>
                                             <td>{{ $data->dokter }}</td>
                                             <td>{{ $data->DataPasien['no_rekam'] }}</td>

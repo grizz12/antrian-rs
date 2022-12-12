@@ -60,6 +60,7 @@ class TiketController extends Controller
         $validated = $request->validate([
             'pinjaman' => 'required',
             'poli' => 'required',
+            'waktu_kunjungan' => 'required',
             'tgl_kunjungan' => 'required',
             'dokter' => 'required',
             'id_data_pasien' => 'required|unique:tikets',
@@ -69,6 +70,7 @@ class TiketController extends Controller
         $tiket = new Tiket();
         $tiket->pinjaman = $request->pinjaman;
         $tiket->poli = $request->poli;
+        $tiket->waktu_kunjungan = $request->waktu_kunjungan;
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
         $tiket->dokter = $request->dokter;
         $tiket->id_data_pasien = $request->id_data_pasien;
@@ -120,15 +122,17 @@ class TiketController extends Controller
         $validated = $request->validate([
             'pinjaman' => 'required',
             'poli' => 'required',
+            'waktu_kunjungan' => 'required',
             'tgl_kunjungan' => 'required',
             'dokter' => 'required',
-            'id_data_pasien' => 'required',
+            'id_data_pasien' => 'required||disable',
 
         ]);
 
         $tiket = Tiket::FindOrFail($id);
         $tiket->pinjaman = $request->pinjaman;
         $tiket->poli = $request->poli;
+        $tiket->waktu_kunjungan = $request->waktu_kunjungan;
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
         $tiket->dokter = $request->dokter;
         $tiket->id_data_pasien = $request->id_data_pasien;

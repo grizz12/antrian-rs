@@ -302,7 +302,7 @@
 
                                     <div class="mb-3">
                                         <label for="">Penghasilan Orang Tua</label>
-                                        <input type="number" name="penghasilan_orang_tua" placeholder="Masukan Penghasilan Orang Tua" class="form-control @error('penghasilan_orang_tua') is-invalid @enderror">
+                                        <input type="text" name="penghasilan_orang_tua" placeholder="Masukan Penghasilan Orang Tua" class="form-control @error('penghasilan_orang_tua') is-invalid @enderror">
                                         @error('penghasilan_orang_tua')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

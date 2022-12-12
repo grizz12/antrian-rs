@@ -20,6 +20,7 @@ class CreateTiketsTable extends Migration
             $table->string('poli')->nullable();
             $table->date('tgl_kunjungan')->nullable();
             $table->string('dokter')->nullable();
+            $table->time('waktu_kunjungan')->nullable();
             $table->timestamps();
         });
     }

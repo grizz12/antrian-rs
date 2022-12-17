@@ -23,9 +23,9 @@ use App\Http\Controllers\AdminCategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/profil', function () {
 //     return view('profil');
@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 Route::get('/profil', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::resource('/data_pasien',DataPasienController::class);

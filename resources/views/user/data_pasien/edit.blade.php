@@ -31,6 +31,26 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
+                                            <label class="form-label">Tanggal Pengisian</label>
+                                            <input type="date" class="form-control  @error('tgl') is-invalid @enderror"
+                                                name="tgl" value="{{ $data_pasien->tgl }}">
+                                            @error('tgl')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">NIK</label>
+                                            <input type="text" class="form-control  @error('nik') is-invalid @enderror"
+                                                name="nik" value="{{ $data_pasien->nik }}">
+                                            @error('nik')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
                                             <label class="form-label">Nama</label>
                                             <input type="text" class="form-control  @error('nama') is-invalid @enderror"
                                                 name="nama" value="{{ $data_pasien->nama }}">
@@ -119,17 +139,13 @@
                                             @enderror
                                         </div>
     
-                                        <div class="mb-3">
-                                            <label class="form-label">NIK</label>
-                                            <input type="text" class="form-control  @error('nik') is-invalid @enderror"
-                                                name="nik" value="{{ $data_pasien->nik }}">
-                                            @error('nik')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                    
     
+                                        
+                                    </div>
+    
+                                    <!-- Column 2 -->
+                                    <div class="col-sm">
                                         <div class="mb-3">
                                             <label class="form-label">Status Nikah</label>
                                             <select class="form-select @error('status') is-invalid @enderror" name="status" value="{{ $data_pasien->status }}">
@@ -143,11 +159,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        
-                                    </div>
-    
-                                    <!-- Column 2 -->
-                                    <div class="col-sm">
+
                                         <div class="mb-3">
                                             <label class="form-label">Alamat</label>
                                             <textarea type="text"name="alamat" placeholder="Masukan Alamat Anda" value="{{ $data_pasien->alamat }}" class="form-control @error('alamat') is-invalid @enderror"></textarea>
@@ -240,105 +252,172 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4><b>Informasi Detail Orang Tua</b></h4>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <h4 align="center">Ayah</h4>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Orang Tua</label>
-                                        <select class="form-select @error('pilih_orang_tua') is-invalid @enderror" name="pilih_orang_tua">
-                                            <option value="Ayah" {{ $data_pasien->pilih_orang_tua == 'Ayah' ? 'selected' : '' }}>Ayah</option>
-                                            <option value="Ibu" {{ $data_pasien->pilih_orang_tua == 'Ibu' ? 'selected' : '' }}>Ibu</option>
-                                            </option>
-                                        </select>
-                                        @error('pilih_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Nama Ayah</label>
+                                                <input type="text" class="form-control  @error('nama_orang_tua') is-invalid @enderror"
+                                                    name="nama_orang_tua" value="{{ $data_pasien->nama_orang_tua }}">
+                                                @error('nama_orang_tua')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Tanggal Lahir Ayah</label>
+                                                <input type="date" class="form-control  @error('tgl_lahir_orang_tua') is-invalid @enderror"
+                                                    name="tgl_lahir_orang_tua" value="{{ $data_pasien->tgl_lahir_orang_tua }}">
+                                                @error('tgl_lahir_orang_tua')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendidikan Ayah</label>
+                                                <select class="form-select @error('pendidikan_orang_tua') is-invalid @enderror" name="pendidikan_orang_tua">
+                                                    <option value="D3" {{ $data_pasien->pendidikan_orang_tua == 'D3' ? 'selected' : '' }}>D3</option>
+                                                    <option value="S1" {{ $data_pasien->pendidikan_orang_tua == 'S1' ? 'selected' : '' }}>S1</option>
+                                                    <option value="S2" {{ $data_pasien->pendidikan_orang_tua == 'S2' ? 'selected' : '' }}>S2</option>
+                                                    <option value="S3" {{ $data_pasien->pendidikan_orang_tua == 'S3' ? 'selected' : '' }}>S3</option>
+                                                    </option>
+                                                </select>
+                                                @error('pendidikan_orang_tua')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Pekerjaan Ayah</label>
+                                                <select class="form-select @error('pekerjaan_orang_tua') is-invalid @enderror" name="pekerjaan_orang_tua">
+                                                    <option value="Peg.Negeri" {{ $data_pasien->pekerjaan_orang_tua == 'Peg.Negeri' ? 'selected' : '' }}>Peg.Negeri</option>
+                                                    <option value="Peg.Swasta" {{ $data_pasien->pekerjaan_orang_tua == 'Peg.Swasta' ? 'selected' : '' }}>Peg.Swasta</option>
+                                                    <option value="Mahasiswa" {{ $data_pasien->pekerjaan_orang_tua == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
+                                                    <option value="TidakBekerja" {{ $data_pasien->pekerjaan_orang_tua == 'TidakBekerja' ? 'selected' : '' }}>TidakBekerja</option>
+                                                    </option>
+                                                </select>
+                                                @error('pekerjaan_orang_tua')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Penghasilan Ayah</label>
+                                                <input type="text" class="form-control  @error('penghasilan_orang_tua') is-invalid @enderror"
+                                                    name="penghasilan_orang_tua" value="{{ $data_pasien->penghasilan_orang_tua }}">
+                                                @error('penghasilan_orang_tua')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label for="">Alamat Ayah</label>
+                                                <textarea type="text"name="alamat_orang_tua" placeholder="Masukan Alamat Ayah" class="form-control @error('alamat_orang_tua') is-invalid @enderror"></textarea>
+                                                @error('alamat_orang_tua')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-sm">
+                                            <h4 align="center">Ibu</h4>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Nama Orang Tua</label>
-                                        <input type="text" class="form-control  @error('nama_orang_tua') is-invalid @enderror"
-                                            name="nama_orang_tua" value="{{ $data_pasien->nama_orang_tua }}">
-                                        @error('nama_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                            <div class="mb-3">
+                                                <label class="form-label">Nama Ibu</label>
+                                                <input type="text" class="form-control  @error('nama_ayah') is-invalid @enderror"
+                                                    name="nama_ayah" value="{{ $data_pasien->nama_ayah }}">
+                                                @error('nama_ayah')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Tanggal Lahir Ibu</label>
+                                                <input type="date" class="form-control  @error('tgl_lahir_ayah') is-invalid @enderror"
+                                                    name="tgl_lahir_ayah" value="{{ $data_pasien->tgl_lahir_ayah }}">
+                                                @error('tgl_lahir_ayah')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendidikan Ibu</label>
+                                                <select class="form-select @error('pendidikan_ayah') is-invalid @enderror" name="pendidikan_ayah">
+                                                    <option value="D3" {{ $data_pasien->pendidikan_ayah == 'D3' ? 'selected' : '' }}>D3</option>
+                                                    <option value="S1" {{ $data_pasien->pendidikan_ayah == 'S1' ? 'selected' : '' }}>S1</option>
+                                                    <option value="S2" {{ $data_pasien->pendidikan_ayah == 'S2' ? 'selected' : '' }}>S2</option>
+                                                    <option value="S3" {{ $data_pasien->pendidikan_ayah == 'S3' ? 'selected' : '' }}>S3</option>
+                                                    </option>
+                                                </select>
+                                                @error('pendidikan_ayah')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Pekerjaan Ibu</label>
+                                                <select class="form-select @error('pekerjaan_ayah') is-invalid @enderror" name="pekerjaan_ayah">
+                                                    <option value="Peg.Negeri" {{ $data_pasien->pekerjaan_ayah == 'Peg.Negeri' ? 'selected' : '' }}>Peg.Negeri</option>
+                                                    <option value="Peg.Swasta" {{ $data_pasien->pekerjaan_ayah == 'Peg.Swasta' ? 'selected' : '' }}>Peg.Swasta</option>
+                                                    <option value="Mahasiswa" {{ $data_pasien->pekerjaan_ayah == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
+                                                    <option value="TidakBekerja" {{ $data_pasien->pekerjaan_ayah == 'TidakBekerja' ? 'selected' : '' }}>TidakBekerja</option>
+                                                    </option>
+                                                </select>
+                                                @error('pekerjaan_ayah')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label class="form-label">Penghasilan Ibu</label>
+                                                <input type="text" class="form-control  @error('penghasilan_ayah') is-invalid @enderror"
+                                                    name="penghasilan_ayah" value="{{ $data_pasien->penghasilan_ayah }}">
+                                                @error('penghasilan_ayah')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="mb-3">
+                                                <label for="">Alamat Ibu</label>
+                                                <textarea type="text"name="alamat_ayah" placeholder="Masukan Alamat Ibu" class="form-control @error('alamat_ayah') is-invalid @enderror"></textarea>
+                                                @error('alamat_ayah')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
-
                                     <div class="mb-3">
-                                        <label class="form-label">Tanggal Lahir Orang Tua</label>
-                                        <input type="date" class="form-control  @error('tgl_lahir_orang_tua') is-invalid @enderror"
-                                            name="tgl_lahir_orang_tua" value="{{ $data_pasien->tgl_lahir_orang_tua }}">
-                                        @error('tgl_lahir_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <div class="d-grid gap-2 d-md-block">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <a href="/pasien-show/{{ auth()->user()->id  }}" class="btn btn-primary" type="submit">Kembali</a>
+                                        </div>
                                     </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Pendidikan Orang Tua</label>
-                                        <select class="form-select @error('pendidikan_orang_tua') is-invalid @enderror" name="pendidikan_orang_tua">
-                                            <option value="D3" {{ $data_pasien->pendidikan_orang_tua == 'D3' ? 'selected' : '' }}>D3</option>
-                                            <option value="S1" {{ $data_pasien->pendidikan_orang_tua == 'S1' ? 'selected' : '' }}>S1</option>
-                                            <option value="S2" {{ $data_pasien->pendidikan_orang_tua == 'S2' ? 'selected' : '' }}>S2</option>
-                                            <option value="S3" {{ $data_pasien->pendidikan_orang_tua == 'S3' ? 'selected' : '' }}>S3</option>
-                                            </option>
-                                        </select>
-                                        @error('pendidikan_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Pekerjaan Orang Tua</label>
-                                        <select class="form-select @error('pekerjaan_orang_tua') is-invalid @enderror" name="pekerjaan_orang_tua">
-                                            <option value="Peg.Negeri" {{ $data_pasien->pekerjaan_orang_tua == 'Peg.Negeri' ? 'selected' : '' }}>Peg.Negeri</option>
-                                            <option value="Peg.Swasta" {{ $data_pasien->pekerjaan_orang_tua == 'Peg.Swasta' ? 'selected' : '' }}>Peg.Swasta</option>
-                                            <option value="Mahasiswa" {{ $data_pasien->pekerjaan_orang_tua == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
-                                            <option value="TidakBekerja" {{ $data_pasien->pekerjaan_orang_tua == 'TidakBekerja' ? 'selected' : '' }}>TidakBekerja</option>
-                                            </option>
-                                        </select>
-                                        @error('pekerjaan_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Penghasilan Orang Tua</label>
-                                        <input type="text" class="form-control  @error('penghasilan_orang_tua') is-invalid @enderror"
-                                            name="penghasilan_orang_tua" value="{{ $data_pasien->penghasilan_orang_tua }}">
-                                        @error('penghasilan_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="">Alamat Orang Tua</label>
-                                        <textarea type="text"name="alamat_orang_tua" placeholder="Masukan Alamat Orang Tua" class="form-control @error('alamat_orang_tua') is-invalid @enderror"></textarea>
-                                        @error('alamat_orang_tua')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                
-                            
-                            
-                            
-                            <div class="mb-3">
-                                <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-primary" type="submit">Save</button>
-                                    <a href="{{ route('data_pasien.index') }}" class="btn btn-primary" type="submit">Kembali</a>
                                 </div>
                             </div>
                         </form>

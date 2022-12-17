@@ -12,6 +12,7 @@ class DataPasien extends Model
     
     protected $fillable = [
         'no_rekam',
+        'tgl',
         'nama',
         'tmp_lahir',
         'tgl_lahir',
@@ -28,13 +29,19 @@ class DataPasien extends Model
         'agama',
         'status',
         'jenis_kelamin',
-        'pilih_orang_tua',
-        'nama_orang_tua',
-        'tgl_lahir_orang_tua',
-        'alamat_orang_tua',
-        'pekerjaan_orang_tua',
-        'penghasilan_orang_tua',
-        'pendidikan_orang_tua', 
+        'nama_ayah',
+        'tgl_lahir_ayah',
+        'alamat_ayah',
+        'pekerjaan_ayah',
+        'penghasilan_ayah',
+        'pendidikan_ayah', 
+
+        'nama_ibu',
+        'tgl_lahir_ibu',
+        'alamat_ibu',
+        'pekerjaan_ibu',
+        'penghasilan_ibu',
+        'pendidikan_ibu',
     ];
     public $timestamps = true;
 
@@ -42,5 +49,9 @@ class DataPasien extends Model
     public function Tiket()
     {
         return $this->hasOne(Tiket::class, 'id_data_pasien');
+    }
+    public function User()
+    {
+       return $this->belongsTo(User::class,'id_user');
     }
 }

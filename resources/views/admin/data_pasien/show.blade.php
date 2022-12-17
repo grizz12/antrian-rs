@@ -9,7 +9,6 @@
                 </center> --}}
                 <div class="card">
                     <div class="card-body">
-
                         <div class="card">
                             <div class="card-body">
                                 <h4><b> Informasi Detail Pasien</b></h4>
@@ -19,6 +18,16 @@
                                         <div class="mb-3">
                                             <label class="form-label">No Rekam Medis</label>
                                             <input type="text" class="form-control " name="no_rekam" value="{{ $data_pasien->no_rekam }}" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Tanggal Pengisian</label>
+                                            <input type="text" class="form-control " name="tgl_lahir" value="{{ $data_pasien->tgl }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">NIK</label>
+                                            <input type="text" class="form-control" name="nik" value="{{ $data_pasien->nik }}"
+                                                readonly>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Nama</label>
@@ -55,20 +64,17 @@
                                             <input type="text" class="form-control" name="pendidikan" value="{{ $data_pasien->pendidikan }}"
                                                 readonly>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">NIK</label>
-                                            <input type="text" class="form-control" name="nik" value="{{ $data_pasien->nik }}"
-                                                readonly>
-                                        </div>
+                    
+    
+                                    </div>
+                                    
+                                    <!-- Column 2 -->
+                                    <div class="col-sm">
                                         <div class="mb-3">
                                             <label class="form-label">Status Nikah</label>
                                             <input type="text" class="form-control" name="status" value="{{ $data_pasien->status }}"
                                                 readonly>
                                         </div>
-                                    </div>
-                                    
-                                    <!-- Column 2 -->
-                                    <div class="col-sm">
                                         <div class="mb-3">
                                             <label class="form-label">Alamat</label>
                                             <textarea class="form-control" name="alamat" readonly>{{ $data_pasien->alamat }}</textarea>
@@ -111,42 +117,77 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4><b> Informasi Detail Orang Tua</b></h4>
-                                <div class="mb-3">
-                                    <label class="form-label">Orang Tua</label>
-                                    <input type="text" class="form-control" name="pilih_orang_tua" value="{{ $data_pasien->pilih_orang_tua }}"
-                                        readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Nama Orang Tua</label>
-                                    <input type="text" class="form-control" name="nama_orang_tua" value="{{ $data_pasien->nama_orang_tua }}"
-                                        readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tanggal Lahir Orang Tua</label>
-                                    <input type="text" class="form-control" name="tgl_lahir_orang_tua" value="{{ $data_pasien->tgl_lahir_orang_tua }}"
-                                        readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Pendidikan Orang Tua</label>
-                                    <input type="text" class="form-control" name="pendidikan_orang_tua" value="{{ $data_pasien->pendidikan_orang_tua }}"
-                                        readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Pekerjaan Orang Tua</label>
-                                    <input type="text" class="form-control" name="pekerjaan_orang_tua" value="{{ $data_pasien->pekerjaan_orang_tua }}"
-                                        readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Penghasilan Orang Tua</label>
-                                    <input type="text" class="form-control" name="penghasilan_orang_tua" value="{{ $data_pasien->penghasilan_orang_tua }}"
-                                        readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Alamat Orang tua</label>
-                                    <textarea class="form-control" name="alamat_orang_tua" readonly>{{ $data_pasien->alamat_orang_tua }}</textarea>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <h4 align="center">Ayah</h4>
+                                        <div class="mb-3">
+                                            <label class="form-label">Nama Ayah</label>
+                                            <input type="text" class="form-control" name="nama_ayah" value="{{ $data_pasien->nama_ayah }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Tanggal Lahir Ayah</label>
+                                            <input type="text" class="form-control" name="tgl_lahir_ayah" value="{{ $data_pasien->tgl_lahir_ayah }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pendidikan Ayah</label>
+                                            <input type="text" class="form-control" name="pendidikan_ayah" value="{{ $data_pasien->pendidikan_ayah }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pekerjaan Ayah</label>
+                                            <input type="text" class="form-control" name="pekerjaan_ayah" value="{{ $data_pasien->pekerjaan_ayah }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Penghasilan Ayah</label>
+                                            <input type="text" class="form-control" name="penghasilan_ayah" value="{{ $data_pasien->penghasilan_ayah }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Alamat Ayah</label>
+                                            <textarea class="form-control" name="alamat_ayah" readonly>{{ $data_pasien->alamat_ayah }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <h4 align="center">Ibu</h4>
+                                        <div class="mb-3">
+                                            <label class="form-label">Nama Ibu</label>
+                                            <input type="text" class="form-control" name="nama_ibu" value="{{ $data_pasien->nama_ibu }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Tanggal Lahir Ibu</label>
+                                            <input type="text" class="form-control" name="tgl_lahir_ibu" value="{{ $data_pasien->tgl_lahir_ibu }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pendidikan Ibu</label>
+                                            <input type="text" class="form-control" name="pendidikan_ibu" value="{{ $data_pasien->pendidikan_ibu }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pekerjaan Ibu</label>
+                                            <input type="text" class="form-control" name="pekerjaan_ibu" value="{{ $data_pasien->pekerjaan_ibu }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Penghasilan Ibu</label>
+                                            <input type="text" class="form-control" name="penghasilan_ibu" value="{{ $data_pasien->penghasilan_ibu }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Alamat Ibu</label>
+                                            <textarea class="form-control" name="alamat_ibu" readonly>{{ $data_pasien->alamat_ibu }}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="mb-3">
                             <div class="d-grid gap-2">
                                 <a href="{{ route('data_pasien.index') }}" class="btn btn-primary" type="submit">Kembali</a>
@@ -158,42 +199,4 @@
         </div>
     </div>
 @endsection
-{{-- 
-<div class="card">
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label">Orang Tua</label>
-            <input type="text" class="form-control" name="pilih_orang_tua" value="{{ $data_pasien->pilih_orang_tua }}"
-                readonly>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Nama Orang Tua</label>
-            <input type="text" class="form-control" name="nama_orang_tua" value="{{ $data_pasien->nama_orang_tua }}"
-                readonly>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Tanggal Lahir Orang Tua</label>
-            <input type="text" class="form-control" name="tgl_orang_tua" value="{{ $data_pasien->tgl_orang_tua }}"
-                readonly>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Pendidikan Orang Tua</label>
-            <input type="text" class="form-control" name="pendidikan_orang_tua" value="{{ $data_pasien->pendidikan_orang_tua }}"
-                readonly>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Pekerjaan Orang Tua</label>
-            <input type="text" class="form-control" name="pekerjaan_orang_tua" value="{{ $data_pasien->pekerjaan_orang_tua }}"
-                readonly>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Penghasilan Orang Tua</label>
-            <input type="text" class="form-control" name="penghasilan_orang_tua" value="{{ $data_pasien->penghasilan_orang_tua }}"
-                readonly>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Alamat Orang tua</label>
-            <textarea class="form-control" name="alamat_orang_tua" readonly>{{ $data_pasien->alamat_orang_tua }}</textarea>
-        </div>
-    </div>
-</div> --}}
+

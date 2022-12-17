@@ -35,6 +35,7 @@
                                 <tbody>
                                     @php $no = 1; @endphp
                                     @foreach ($tiket as $data)
+                                    {{-- @if($data->user->id == Auth::user()->id) --}}
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->pinjaman }}</td>
@@ -83,6 +84,7 @@
                                             </div>
                                             </td>
                                         </tr>
+                                        {{-- @endif --}}
                                     @endforeach
                                 </tbody>
                             </table>

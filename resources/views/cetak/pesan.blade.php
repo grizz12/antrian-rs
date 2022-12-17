@@ -73,7 +73,7 @@
                     </div>    
                 <div class="mb-3">      
                     <a href="/cetak_pdf/{{$tiket->id}}" class="btn btn-danger" target="_blank"><i class="fa fa-print"></i>&nbsp;Cetak PDF</a>
-                    <a href="{{ route('tiket.index') }}" class="btn btn-primary" type="submit">Kembali</a>
+                    <a href="{{ route('tiket.create') }}" class="btn btn-primary" type="submit">Kembali</a>
                 </div>
                 <br><br><br>
             </center>

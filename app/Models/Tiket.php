@@ -17,4 +17,8 @@ class Tiket extends Model
     {
         return $this->belongsTo(DataPasien::class,'id_data_pasien');
     }
+    public function User()
+    {
+       return $this->belongsTo(User::class,'id_user');
+    }
 }

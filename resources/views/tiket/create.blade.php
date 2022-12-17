@@ -74,12 +74,15 @@
                                     </span>
                                 @enderror
                             </div>
+                            
                             <div class="mb-3">
                                 <label class="form-label">Pilih No.Rekam Medis</label>
                                 <select name="id_data_pasien" class="form-control @error('id_data_pasien') is-invalid @enderror"
                                     id="">
                                     @foreach ($data_pasien as $data)
+                                    @if($data->user->id == Auth::user()->id)
                                         <option value="{{ $data->id }}">{{ $data->no_rekam }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @error('id_data_pasien')
@@ -88,6 +91,7 @@
                                     </span>
                                 @enderror
                             </div>
+                            
                             
                             {{-- <div class="mb-3">
                                 <label for="">No Rekam Medis</label>

@@ -83,10 +83,12 @@
                                 <select name="id_data_pasien" class="form-control @error('id_data_pasien') is-invalid @enderror"
                                     readonly disabled>
                                     @foreach ($data_pasien as $data)
+                                    @if($data->user->id == Auth::user()->id)
                                         <option value="{{ $data->id }}"
                                             {{ $data->id == $tiket->id_data_pasien ? 'selected' : '' }}>
                                             {{ $data->no_rekam }}
                                         </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @error('id_data_pasien')

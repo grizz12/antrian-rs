@@ -55,7 +55,8 @@
             <img src="images/piksi ganesha hospital.png" class="col-md-4 float-md-end mb-3 ms-md-3" alt="Logo Piksi Ganesha" >
                 <h1><b>Halo,</b></h1>
                 <p>Selamat Datang Di Website Kami <b>Piksi Hospital</b>.
-                  Disini Kami Melayani Pemesanan Tiket Secara Online Untuk Pasien Yang Ingin Mendaftar Di <b>Piksi Hospital</b>.
+                  Disini Kami Melayani Pendaftaran Pasien Rawat Jalan Tiket Secara Online 
+                  Untuk Pasien Yang Ingin Mendaftar Di <b>Piksi Hospital</b>.
                   Website Ini Bertujuan Memudahkan Pengguna Agar Dapat Mendaftar Dengan Online.
                   Daftar Terlebih Dahulu Untuk Memesan Tiket!
                 </p>

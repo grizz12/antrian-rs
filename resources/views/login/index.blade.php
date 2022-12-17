@@ -23,7 +23,7 @@
   width: 50%;
   /* Link to your background image using in the property below! */
   background: scroll center url('images/doctror.png');
-  background-size: 400px;
+  background-size: 450px;
 }
 
 .title {

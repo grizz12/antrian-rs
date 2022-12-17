@@ -20,8 +20,18 @@
                                 readonly>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Waktu Kunjungan</label>
+                            <input type="text" class="form-control" name="waktu_kunjungan" value="{{ $tiket->waktu_kunjungan }}"
+                                readonly>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Tanggal Kunjungan</label>
                             <input type="text" class="form-control" name="tgl_kunjungan" value="{{ $tiket->tgl_kunjungan }}"
+                                readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dokter</label>
+                            <input type="text" class="form-control" name="dokter" value="{{ $tiket->dokter }}"
                                 readonly>
                         </div>
                         <div class="mb-3">

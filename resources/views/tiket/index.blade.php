@@ -23,8 +23,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Jaminan Pembiayaan</th>
+                                        <th>Jaminan</th>
                                         <th>Poliklinik Yang Dituju</th>
+                                        <th>Waktu Kunjungan</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Nama Dokter</th>
                                         <th>No.Rekam Medis</th>
@@ -34,10 +35,12 @@
                                 <tbody>
                                     @php $no = 1; @endphp
                                     @foreach ($tiket as $data)
+                                    {{-- @if($data->user->id == Auth::user()->id) --}}
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->pinjaman }}</td>
                                             <td>{{ $data->poli }}</td>
+                                            <td>{{ $data->waktu_kunjungan}}</td>
                                             <td>{{ $data->tgl_kunjungan }}</td>
                                             <td>{{ $data->dokter }}</td>
                                             <td>{{ $data->DataPasien['no_rekam'] }}</td>
@@ -81,6 +84,7 @@
                                             </div>
                                             </td>
                                         </tr>
+                                        {{-- @endif --}}
                                     @endforeach
                                 </tbody>
                             </table>

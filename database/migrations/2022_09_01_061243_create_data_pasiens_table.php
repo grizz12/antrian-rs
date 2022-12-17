@@ -15,6 +15,9 @@ class CreateDataPasiensTable extends Migration
     {
         Schema::create('data_pasiens', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->date('tgl')->nullable();
             $table->integer('no_rekam')->unique();
             $table->string('nama')->nullable();
             $table->string('tmp_lahir')->nullable();
@@ -33,15 +36,20 @@ class CreateDataPasiensTable extends Migration
             $table->string('alergi')->nullable();
             $table->string('keterangan_alergi')->nullable();
             // Data Ayah
-            $table->string('pilih_orang_tua')->nullable();
-            $table->string('nama_orang_tua')->nullable();
-            $table->date('tgl_lahir_orang_tua')->nullable();
-            $table->string('pendidikan_orang_tua')->nullable();
-            $table->string('pekerjaan_orang_tua')->nullable();
-            $table->string('alamat_orang_tua')->nullable();
-            $table->string('penghasilan_orang_tua')->nullable();
+            $table->string('nama_ayah')->nullable();
+            $table->date('tgl_lahir_ayah')->nullable();
+            $table->string('pendidikan_ayah')->nullable();
+            $table->string('pekerjaan_ayah')->nullable();
+            $table->string('alamat_ayah')->nullable();
+            $table->string('penghasilan_ayah')->nullable();
 
             // Data Ibu
+            $table->string('nama_ibu')->nullable();
+            $table->date('tgl_lahir_ibu')->nullable();
+            $table->string('pendidikan_ibu')->nullable();
+            $table->string('pekerjaan_ibu')->nullable();
+            $table->string('alamat_ibu')->nullable();
+            $table->string('penghasilan_ibu')->nullable();
 
             
             $table->timestamps();
@@ -58,3 +66,7 @@ class CreateDataPasiensTable extends Migration
         Schema::dropIfExists('data_pasiens');
     }
 }
+
+
+// $table->unsignedBigInteger('id_user');
+//             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

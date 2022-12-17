@@ -8,8 +8,8 @@
                 {{-- <center>
                     <h1><b>{{ $title }}</b></h1>
                 </center> --}}
-                <a href="/admin/data_pasien/create" class="btn btn-primary " style="float: right;">
-                        Tambah Data Pasien
+                <a href="{{ route('data_pasien.create') }}" class="btn btn-primary " style="float: right;">
+                        Add Data Pasien
                     </a>
                     
                     <a href="/export/data_pasien" class="btn btn-success " style="float: left;">
@@ -34,7 +34,8 @@
                                 </thead>
                                 <tbody>
                                     @php $no = 1; @endphp
-                                    @foreach ($ as $data)
+                                    @foreach ($data_pasien as $data)
+                                    {{-- @if($data->user->id == Auth::user()->id) --}}
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->no_rekam }}</td>
@@ -76,6 +77,7 @@
                                             </div>
                                             </td>
                                         </tr>
+                                        {{-- @endif --}}
                                     @endforeach
                                 </tbody>
                             </table>

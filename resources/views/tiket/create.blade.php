@@ -40,6 +40,16 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="">Waktu Kunjungan</label>
+                                <input type="time" name="waktu_kunjungan" class="form-control @error('waktu_kunjungan') is-invalid @enderror">
+                                @error('waktu_kunjungan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="">Tanggal Kunjungan</label>
                                 <input type="date" name="tgl_kunjungan" class="form-control @error('tgl_kunjungan') is-invalid @enderror">
                                 @error('tgl_kunjungan')
@@ -64,12 +74,15 @@
                                     </span>
                                 @enderror
                             </div>
+                            
                             <div class="mb-3">
                                 <label class="form-label">Pilih No.Rekam Medis</label>
                                 <select name="id_data_pasien" class="form-control @error('id_data_pasien') is-invalid @enderror"
                                     id="">
                                     @foreach ($data_pasien as $data)
+                                    @if($data->user->id == Auth::user()->id)
                                         <option value="{{ $data->id }}">{{ $data->no_rekam }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @error('id_data_pasien')
@@ -78,6 +91,7 @@
                                     </span>
                                 @enderror
                             </div>
+                            
                             
                             {{-- <div class="mb-3">
                                 <label for="">No Rekam Medis</label>

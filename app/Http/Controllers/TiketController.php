@@ -7,6 +7,7 @@ use App\Models\Tiket;
 use App\Models\DataPasien;
 use App\Exports\TiketExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Auth;
 //app('App\Http\Controllers\CetakController')->cetak();
 
 class TiketController extends Controller
@@ -24,8 +25,11 @@ class TiketController extends Controller
     
     public function index()
     {
+        $this->authorize('admin');
+        
         $tiket = Tiket::with('DataPasien')->get();
-        //$tiket = Tiket::all();
+        // $tiket = $tiket->where('id_user',Auth()->user()->id);
+        $tiket = Tiket::all();
         return view ('tiket.index',compact('tiket'), [
             'title' => 'Input Kunjungan & Tiket',
         ]);
@@ -59,6 +63,7 @@ class TiketController extends Controller
         $validated = $request->validate([
             'pinjaman' => 'required',
             'poli' => 'required',
+            'waktu_kunjungan' => 'required',
             'tgl_kunjungan' => 'required',
             'dokter' => 'required',
             'id_data_pasien' => 'required|unique:tikets',
@@ -66,8 +71,10 @@ class TiketController extends Controller
         ]);
 
         $tiket = new Tiket();
+        $tiket->id_user = Auth::user()->id;
         $tiket->pinjaman = $request->pinjaman;
         $tiket->poli = $request->poli;
+        $tiket->waktu_kunjungan = $request->waktu_kunjungan;
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
         $tiket->dokter = $request->dokter;
         $tiket->id_data_pasien = $request->id_data_pasien;
@@ -105,7 +112,7 @@ class TiketController extends Controller
         return view('tiket.edit',compact('tiket','data_pasien'), [
             'title' => 'Ubah Data Kunjungan & Tiket',
         ]);
-}
+    }
 
     /**
      * Update the specified resource in storage.
@@ -119,15 +126,18 @@ class TiketController extends Controller
         $validated = $request->validate([
             'pinjaman' => 'required',
             'poli' => 'required',
+            'waktu_kunjungan' => 'required',
             'tgl_kunjungan' => 'required',
             'dokter' => 'required',
-            'id_data_pasien' => 'required',
+            'id_data_pasien' => 'required||disable',
 
         ]);
 
         $tiket = Tiket::FindOrFail($id);
+        $tiket->id_user = Auth::user()->id;
         $tiket->pinjaman = $request->pinjaman;
         $tiket->poli = $request->poli;
+        $tiket->waktu_kunjungan = $request->waktu_kunjungan;
         $tiket->tgl_kunjungan = $request->tgl_kunjungan;
         $tiket->dokter = $request->dokter;
         $tiket->id_data_pasien = $request->id_data_pasien;
@@ -146,6 +156,39 @@ class TiketController extends Controller
         $tiket = Tiket::FindOrFail($id);
         $tiket->delete();
         return redirect()->route('tiket.index')->with('succes','Data berhasil dihapus!');
+    }
+
+
+
+    //USER
+    public function show_($id)
+    {
+        
+        $tiket = Tiket::FindOrFail($id);
+        $Cari_data = $tiket->where('id_user',Auth()->user()->id)->get();
+        
+        return view('user/tiket/show', [
+            'title' => 'Lihat Data Kunjungan & Tiket',
+            'tiket' => $Cari_data[0],
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_($id)
+    {
+        
+        $tiket = Tiket::FindOrFail($id);
+        $data_pasien = DataPasien::all();
+        $Cari_data = $tiket->where('id_user',Auth()->user()->id)->get();
+        return view('user/tiket/edit',compact('tiket','data_pasien'),[
+            'title' => 'Ubah Data Kunjungan & Tiket',
+            'tiket' => $Cari_data[0],
+        ]);
     }
 
 

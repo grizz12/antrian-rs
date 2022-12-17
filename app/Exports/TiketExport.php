@@ -19,13 +19,15 @@ class TiketExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return [
-            'No Antrian',
             'NO',
+            'No Antrian',
+            'id_user',
             'Jaminan',
             'Poliklinik Yang Dituju',
             'Tanggal Kunjungan',
+            'Dokter',
+            'Waktu   Kunjungan',
                         
-
         ];
     }
 }

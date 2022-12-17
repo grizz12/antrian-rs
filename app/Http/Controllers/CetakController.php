@@ -28,7 +28,7 @@ class CetakController extends Controller
 
     public function cetak_pdf($id){
         $tiket = Tiket::FindOrFail($id);
-        $customPaper = array(0,0,390,390);
+        $customPaper = array(0,0,550,550);
         $pdf = PDF::loadview('cetak.pesan_pdf', ['tiket' => $tiket])->setPaper($customPaper, 'landscape');
         return $pdf->download('pesan_tiket_pasien.pdf');
         // return $pdf->stream();

@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -31,16 +31,21 @@ use App\Http\Controllers\AdminCategoryController;
 //     return view('profil');
 // });
 
-Route::get('/profil', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::get('/profil', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile','admin');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('/data_pasien',DataPasienController::class)->middleware('auth','admin');
 
-Route::resource('/data_pasien',DataPasienController::class);
+Route::get('/pasien-show/{id}',[App\Http\Controllers\DataPasienController::class, 'show_'])->name('show_')->middleware('auth');
+Route::get('/pasien-edit/{id}',[App\Http\Controllers\DataPasienController::class, 'edit_'])->name('edit_')->middleware('auth');
+
+Route::get('/tiket-show/{id}',[App\Http\Controllers\TiketController::class, 'show_'])->name('show_')->middleware('auth');
+Route::get('/tiket-edit/{id}',[App\Http\Controllers\TiketController::class, 'edit_'])->name('edit_')->middleware('auth');
 
 Route::resource('/input_data',InputPasienController::class);
 
-Route::resource('/tiket',TiketController::class);
+Route::resource('/tiket',TiketController::class)->middleware('auth','admin');
 
 // Route::get('/action',[TiketController::class,'action'])->name('tiket.action');
 
@@ -75,6 +80,10 @@ Route::post('/register',[RegisterController::class,'store']);
 Route::get('/export/data_pasien',[App\Http\Controllers\DataPasienController::class, 'dataExport'])->name('dataExport');
 
 Route::get('/export/Kunjungan&Tiket',[App\Http\Controllers\TiketController::class, 'tiketExport'])->name('tiketExport');
+
+
+// Route::get('online-user', 'App\Http\Controllers\UserController@index');
+Route::resource('/online-user',UserController::class);
 
 
 

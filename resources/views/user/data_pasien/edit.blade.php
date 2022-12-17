@@ -30,9 +30,8 @@
                                                 </span>
                                             @enderror
                                         </div>
-
                                         <div class="mb-3">
-                                            <label class="form-label">Tanggal Lahir</label>
+                                            <label class="form-label">Tanggal Pengisian</label>
                                             <input type="date" class="form-control  @error('tgl') is-invalid @enderror"
                                                 name="tgl" value="{{ $data_pasien->tgl }}">
                                             @error('tgl')
@@ -41,7 +40,6 @@
                                                 </span>
                                             @enderror
                                         </div>
-
                                         <div class="mb-3">
                                             <label class="form-label">NIK</label>
                                             <input type="text" class="form-control  @error('nik') is-invalid @enderror"
@@ -52,7 +50,6 @@
                                                 </span>
                                             @enderror
                                         </div>
-
                                         <div class="mb-3">
                                             <label class="form-label">Nama</label>
                                             <input type="text" class="form-control  @error('nama') is-invalid @enderror"
@@ -129,10 +126,10 @@
                                         <div class="mb-3">
                                             <label class="form-label">Pendidikan</label>
                                             <select class="form-select @error('pendidikan') is-invalid @enderror" name="pendidikan">
-                                                <option value="SD" {{ $data_pasien->pendidikan == 'SD' ? 'selected' : '' }}>SD</option>
-                                                <option value="SMP" {{ $data_pasien->pendidikan == 'SMP' ? 'selected' : '' }}>SMP</option>
-                                                <option value="SMA/SMK" {{ $data_pasien->pendidikan == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
-                                                <option value="PERGURUAN TINGGI" {{ $data_pasien->pendidikan == 'PERGURUAN TINGGI' ? 'selected' : '' }}>PERGURUAN TINGGI</option>
+                                                <option value="D3" {{ $data_pasien->pendidikan == 'D3' ? 'selected' : '' }}>D3</option>
+                                                <option value="S1" {{ $data_pasien->pendidikan == 'S1' ? 'selected' : '' }}>S1</option>
+                                                <option value="S2" {{ $data_pasien->pendidikan == 'S2' ? 'selected' : '' }}>S2</option>
+                                                <option value="S3" {{ $data_pasien->pendidikan == 'S3' ? 'selected' : '' }}>S3</option>
                                                 </option>
                                             </select>
                                             @error('pendidikan')
@@ -142,12 +139,13 @@
                                             @enderror
                                         </div>
     
+                    
+    
                                         
                                     </div>
     
                                     <!-- Column 2 -->
                                     <div class="col-sm">
-                                        
                                         <div class="mb-3">
                                             <label class="form-label">Status Nikah</label>
                                             <select class="form-select @error('status') is-invalid @enderror" name="status" value="{{ $data_pasien->status }}">
@@ -161,7 +159,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        
+
                                         <div class="mb-3">
                                             <label class="form-label">Alamat</label>
                                             <textarea type="text"name="alamat" placeholder="Masukan Alamat Anda" value="{{ $data_pasien->alamat }}" class="form-control @error('alamat') is-invalid @enderror"></textarea>
@@ -284,10 +282,10 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Pendidikan Ayah</label>
                                                 <select class="form-select @error('pendidikan_orang_tua') is-invalid @enderror" name="pendidikan_orang_tua">
-                                                    <option value="SD" {{ $data_pasien->pendidikan == 'SD' ? 'selected' : '' }}>SD</option>
-                                                    <option value="SMP" {{ $data_pasien->pendidikan == 'SMP' ? 'selected' : '' }}>SMP</option>
-                                                    <option value="SMA/SMK" {{ $data_pasien->pendidikan == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
-                                                    <option value="PERGURUAN TINGGI" {{ $data_pasien->pendidikan == 'PERGURUAN TINGGI' ? 'selected' : '' }}>PERGURUAN TINGGI</option>
+                                                    <option value="D3" {{ $data_pasien->pendidikan_orang_tua == 'D3' ? 'selected' : '' }}>D3</option>
+                                                    <option value="S1" {{ $data_pasien->pendidikan_orang_tua == 'S1' ? 'selected' : '' }}>S1</option>
+                                                    <option value="S2" {{ $data_pasien->pendidikan_orang_tua == 'S2' ? 'selected' : '' }}>S2</option>
+                                                    <option value="S3" {{ $data_pasien->pendidikan_orang_tua == 'S3' ? 'selected' : '' }}>S3</option>
                                                     </option>
                                                 </select>
                                                 @error('pendidikan_orang_tua')
@@ -334,8 +332,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                        </div>
+        
                                         <div class="col-sm">
                                             <h4 align="center">Ibu</h4>
 
@@ -364,10 +361,10 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Pendidikan Ibu</label>
                                                 <select class="form-select @error('pendidikan_ayah') is-invalid @enderror" name="pendidikan_ayah">
-                                                    <option value="SD" {{ $data_pasien->pendidikan == 'SD' ? 'selected' : '' }}>SD</option>
-                                                <option value="SMP" {{ $data_pasien->pendidikan == 'SMP' ? 'selected' : '' }}>SMP</option>
-                                                <option value="SMA/SMK" {{ $data_pasien->pendidikan == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
-                                                <option value="PERGURUAN TINGGI" {{ $data_pasien->pendidikan == 'PERGURUAN TINGGI' ? 'selected' : '' }}>PERGURUAN TINGGI</option>
+                                                    <option value="D3" {{ $data_pasien->pendidikan_ayah == 'D3' ? 'selected' : '' }}>D3</option>
+                                                    <option value="S1" {{ $data_pasien->pendidikan_ayah == 'S1' ? 'selected' : '' }}>S1</option>
+                                                    <option value="S2" {{ $data_pasien->pendidikan_ayah == 'S2' ? 'selected' : '' }}>S2</option>
+                                                    <option value="S3" {{ $data_pasien->pendidikan_ayah == 'S3' ? 'selected' : '' }}>S3</option>
                                                     </option>
                                                 </select>
                                                 @error('pendidikan_ayah')
@@ -415,13 +412,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="mb-3">
+                                        <div class="d-grid gap-2 d-md-block">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <a href="/pasien-show/{{ auth()->user()->id  }}" class="btn btn-primary" type="submit">Kembali</a>
                                         </div>
                                     </div>
-
-                            <div class="mb-3">
-                                <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-primary" type="submit">Save</button>
-                                    <a href="{{ route('admin.data_pasien.index') }}" class="btn btn-primary" type="submit">Kembali</a>
                                 </div>
                             </div>
                         </form>

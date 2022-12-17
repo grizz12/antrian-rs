@@ -83,11 +83,88 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Detail Pasien
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/pasien-show/{{ auth()->user()->id  }}" class="nav-link {{Request::is('data_pasien') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Detail Pasien</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/tiket-show/{{ auth()->user()->id  }}" class="nav-link {{Request::is('tiket') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Kunjungan & Tiket</p>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
 
-
-      {{-- ADMIN Authorization --}}
+      @can('admin')
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-header">
+          <h6 class="sidebar-headling text-muted">
+            Detail Pasien
+          </h6>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('data_pasien.index') }}" class="nav-link {{Request::is('data_pasien') ? 'active' : '' }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+              <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+            </svg>
+            &nbsp;
+            <p>
+             Data Pasien 
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('tiket.index') }}" class="nav-link {{Request::is('tiket') ? 'active' : '' }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+              <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z"/>
+            </svg>
+            &nbsp;
+            <p>
+              Kunjungan & Tiket
+            </p>
+          </a>
+        </li>
+      </ul>
+
+      
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-header">
+          <h6 class="sidebar-headling text-muted">
+            Informasi Online User
+          </h6>
+        </li>
+        <li class="nav-item">
+          <a href="/online-user" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+              <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+              <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+            </svg>
+            &nbsp;
+            <p>
+             Data Pasien 
+            </p>
+          </a>
+        </li>
+      </ul>
+      @endcan
+
+
+      {{-- {{-- @can('admin') --}}
+      {{-- ADMIN Authorization --}}
+      {{-- <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-header">
           <h6 class="sidebar-headling text-muted">
             Informasi Data Pasien
@@ -115,10 +192,23 @@
             </p>
           </a>
         </li>
-      </ul>
+      </ul> --}}
+      {{-- @endcan --}} 
 
     </nav>
     <!-- /.sidebar-menu -->
   </div>
 
   {{-- {{ Request::is('admin/data_pasien/tabel*') ? 'active' : '' }} --}}
+
+  {{-- <li class="nav-item">
+    <a href="{{ route('tiket.index') }}" class="nav-link {{Request::is('tiket') ? 'active' : '' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z"/>
+      </svg>
+      &nbsp;
+      <p>
+        Kunjungan & Tiket
+      </p>
+    </a>
+  </li> --}}
